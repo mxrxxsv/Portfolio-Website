@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #222;
+    }
+
+    .contain {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    .contain .progress {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        color: #fff;
+        background: #444 linear-gradient(to right, transparent 50%, var(--clr) 0);
+    }
+
+    .contain .progress h3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2.5rem;
+        z-index: 1;
+        font-weight: 500;
+    }
+
+    .contain .progress h3 span {
+        font-size: 0.65em;
+        font-weight: 400;
+    }
+
+    .contain .progress h4 {
+        position: absolute;
+        top: 62%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        font-weight: 500;
+        color: var(--clr);
+        text-transform: uppercase;
+    }
+
+    .contain .progress::before {
+        content: '';
+        display: block;
+        height: 100%;
+        margin-left: 50%;
+        transform-origin: left;
+        border-radius: 0 100% 100% 0/50%;
+    }
+
+    .contain .progress::after {
+        content: '';
+        position: absolute;
+        inset: 10px;
+        border-radius: 50%;
+        background: #222;
+    }
+
+    .contain .progress::before {
+        background: var(--clr);
+        transform: rotate(calc(((var(--i) - 50) * 0.01turn )));
+    }
+
+    .contain .progress.less::before {
+        background: #444; 
+        transform: rotate(calc(((var(--i) - 50) * 0.01turn )));
+    }
+</style>
+
+<body>
+    <div class="contain container">
+        <div class="progress" style="--i:85;--clr:#2f3651;">
+            <h3>85<span>%</span></h3>
+            <h4>HTML</h4>
+        </div>
+
+        <div class="progress" style="--i:62;--clr: #2f3651;">
+            <h3>62<span>%</span></h3>
+            <h4>CSS</h4>
+        </div>
+
+        <div class="progress less" style="--i:35;--clr: #2f3651;">
+            <h3>35<span>%</span></h3>
+            <h4>JS</h4>
+        </div>
+
+        <div class="progress" style="--i:78;--clr: #2f3651;">
+            <h3>78<span>%</span></h3>
+            <h4>JAVA</h4>
+        </div>
+    </div>
+</body>
+
+</html>
